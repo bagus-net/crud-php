@@ -17,23 +17,24 @@
         <td>tanggal</td> 
         <td>uraian_berita</td> 
         <td>sumber</td> 
-        <td>id_desa</td> 
+     
         <td>opsi</td> 
         
 </tr>
 <td>
     <?php
     include "koneksi.php";
-    $query =mysqli_query($koneksi, "SELECT *FROM berita ");
+    $query =mysqli_query($koneksi, "SELECT *FROM berita ORDER BY id_berita");
+    $no=0;
     while ($row = mysqli_fetch_array($query)) {
         $no++; 
     ?>
+    <tr>
     <td><?= $no;?></td>
     <td><?= $row['id_berita']; ?></td>
     <td><?= $row['tanggal']; ?></td>
     <td><?= $row['uraian_berita']; ?></td>
     <td><?= $row['sumber']; ?></td>
-    <td><?= $row['id_desa']; ?></td> 
     <td>
         <a href="edit.php?id_berita=<?= $row ['id_berita'];?>">edit</a>
         <a href="delete.php?id_berita=<?= $row ['id_berita'];?>">delete</a>

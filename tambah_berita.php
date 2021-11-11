@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-compatible" content="IE-edge">
     <meta name="viewport" contant="width=devide-width, initial-scale=1.0">
-    <title>Data Berita</title>
+    <title>Tambah Berita</title>
 </head>
 <body>
     <form action="" method="POST">
@@ -21,7 +21,7 @@
             $m = date('m');
 
             if(strlen($tambah)==1){
-                $format = $t.$d.$m."00".$tambah;
+                $formast = $t.$d.$m."00".$tambah;
             } elseif(strlen($tambah) ==2){
                 $format = $t.$d.$m."0".$tambah;
             }else{
@@ -39,7 +39,7 @@
                 <tr>
                     <td>tanggal</td>
                     <td></td>
-                    <td><input type="text" name="tanggal" placeholder="Masukan tanggal"></td>
+                    <td><input type="date" name="tanggal" placeholder="Masukan tanggal"></td>
                 </tr>
                 <tr>
                     <td>uraian_berita</td>
@@ -51,11 +51,7 @@
                     <td></td>
                     <td><input type="text" name="sumber" placeholder="Masukan sumber"></td>
                 </tr>
-                <tr>
-                    <td>id_desa</td>
-                    <td></td>
-                    <td><input type="text" name="id_desa" placeholder="Masukan id_desa"></td>
-                </tr>
+            
                 
                     <td>
                         <input type= "submit" name="submit" value="Save">
@@ -69,17 +65,17 @@
         </fieldset>
     </form>
         <?php
-        if(isset($_POST['submit'])){
+    
             $id_berita = $_POST['id_berita'];
             $tanggal = $_POST['tanggal'];
             $uraian_berita = $_POST['uraian_berita'];
             $sumber = $_POST['sumber'];
-            $id_desa = $_POST['id_desa'];
+           
 
             $save =mysqli_query($koneksi, "INSERT INTO berita 
-            (id_berita,tanggal,uraian_berita,sumber,id_desa)
-            VALUES ('$id_berita','$tanggal','$uraian_berita','$sumber','id_desa')"); 
-        }
+            (id_berita,tanggal,uraian_berita,sumber)
+            VALUES ('$id_berita','$tanggal','$uraian_berita','$sumber')"); 
+        
         
         
         

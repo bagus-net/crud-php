@@ -9,4 +9,8 @@
     die ("tidak bisa koneksi ke database");
   }
 
+  // else
+ //  {
+   // echo("terkoneksi gaes");
+  // }
 ?>
