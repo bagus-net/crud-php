@@ -69,15 +69,20 @@
         </fieldset>
     </form>
         <?php
-        $id_berita = $_POST['id_berita'];
-        $tanggal = $_POST['tanggal'];
-        $uraian_berita = $_POST['uraian_berita'];
-        $sumber = $_POST['sumber'];
-        $id_desa = $_POST['id_desa'];
+        if(isset($_POST['submit'])){
+            $id_berita = $_POST['id_berita'];
+            $tanggal = $_POST['tanggal'];
+            $uraian_berita = $_POST['uraian_berita'];
+            $sumber = $_POST['sumber'];
+            $id_desa = $_POST['id_desa'];
 
-        $save =mysqli_query($koneksi, "INSERT INTO berita 
-        (id_berita,tanggal,uraian_berita,sumber,id_desa)
-        VALUES ('$id_berita','$tanggal','$uraian_berita','$sumber','id_desa')"); 
+            $save =mysqli_query($koneksi, "INSERT INTO berita 
+            (id_berita,tanggal,uraian_berita,sumber,id_desa)
+            VALUES ('$id_berita','$tanggal','$uraian_berita','$sumber','id_desa')"); 
+        }
+        
+        
+        
       ?>  
 </body>
 </html>
