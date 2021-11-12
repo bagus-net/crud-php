@@ -37,7 +37,7 @@
     <td><?= $row['sumber']; ?></td>
     <td>
         <a href="edit.php?id_berita=<?= $row ['id_berita'];?>">edit</a>
-        <a href="delete.php?id_berita=<?= $row ['id_berita'];?>" onclick ="return comfirm ('Apakah anda yakin mau hapus ?')">delete</a>
+        <a href="delete.php?id_berita=<?= $row ['id_berita'];?>" onclick ="return confirm ('Apakah anda yakin mau hapus ?')">delete</a>
     </td>
 <?php }?>
 </td>
