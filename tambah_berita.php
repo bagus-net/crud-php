@@ -65,7 +65,7 @@
         </fieldset>
     </form>
         <?php
-    
+        if (isset($_POST['submit'])){
             $id_berita = $_POST['id_berita'];
             $tanggal = $_POST['tanggal'];
             $uraian_berita = $_POST['uraian_berita'];
@@ -75,6 +75,8 @@
             $save =mysqli_query($koneksi, "INSERT INTO berita 
             (id_berita,tanggal,uraian_berita,sumber)
             VALUES ('$id_berita','$tanggal','$uraian_berita','$sumber')"); 
+        }
+            
         
         
         
