@@ -13,15 +13,15 @@
             include 'koneksi.php';
             $no = mysqli_query($koneksi, "SELECT *FROM berita ORDER BY id_berita DESC");
             $kode = mysqli_fetch_array($no);
-            $kd = $kodee['id_berita'];
+            $kd = $kode['id_berita'];
             $urut = substr($kd,6,3);
-            $tambah - (int) $urut+1;
+            $tambah = (int) $urut+1;
             $t = date ('y');
             $d  =date('d');
             $m = date('m');
 
             if(strlen($tambah)==1){
-                $formast = $t.$d.$m."00".$tambah;
+                $format = $t.$d.$m."00".$tambah;
             } elseif(strlen($tambah) ==2){
                 $format = $t.$d.$m."0".$tambah;
             }else{
