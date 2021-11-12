@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-compatible" content="IE-edge">
     <meta name="viewport" contant="width=devide-width, initial-scale=1.0">
-    <title>Tambah Berita</title>
+    <title>Update Berita</title>
 </head>
 <body>
     <form action="" method="POST">
@@ -15,7 +15,7 @@
         $row = mysqli_fetch_array($query);
     ?>   
         <fieldset>
-            <legend>Tambah Berita</legend>
+            <legend>Update</legend>
             <table>
                 <tr>
                     <td>id_berita</td>
