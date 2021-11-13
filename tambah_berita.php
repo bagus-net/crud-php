@@ -76,11 +76,7 @@
             (id_berita,tanggal,uraian_berita,sumber)
             VALUES ('$id_berita','$tanggal','$uraian_berita','$sumber')"); 
         }
-            
-        
-        
-        
-        
+   
       ?>  
 </body>
 </html>
