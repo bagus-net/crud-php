@@ -9,23 +9,24 @@
 <body>
     <form action="" method="POST">
      <?php
-     include 'koneksi.php';
+     include ("../koneksi.php");
         $id_jenis_berita = $_GET['id_jenis_berita'];
-        $query = mysqli_query($koneksi, "SELECT * FROM jenis_berita ORDER BY id_jenis_berita=$id_jenis_berita");
-        $row = mysqli_fetch_array($query);
-    ?>   
+        $query ="SELECT * FROM jenis_berita WHERE id_jenis_berita=$id_jenis_berita";
+        $sql = mysqli_query($koneksi, $query);
+        $data_awal = mysqli_fetch_assoc($sql);
+    ?>      
         <fieldset>
             <legend>Update</legend>
             <table>
                 <tr>
                     <td>id_jenis_berita</td>
                     <td></td>
-                    <td><input type="text" name="id_jenis_berita" placeholder="Masukan id_jenis_berita" value="<?= $id_jenis_berita;?>"readonly></td>
+                    <td><input type="text" name="id_jenis_berita" placeholder="Masukan id_jenis_berita" value="<?= $data_awal['id_jenis_berita']?>"></td>
                 </tr>
                 <tr>
                     <td>nama_jenis</td>
                     <td></td>
-                    <td><input type="text" name="nama_jenis" placeholder="Masukan nama_jenis"value="<?= $row['nama_jenis'];?>"></td>
+                    <td><input type="text" name="nama_jenis" placeholder="Masukan nama_jenis"value="<?= $data_awal['nama_jenis']?>"></td>
                 </tr>
             
                 
@@ -35,7 +36,7 @@
                     </td>
 </tr>
     <tr>
-        <td><a href="jenis_berita.php">kembali ke menu jenis Berita </a></td>
+        <td><a href="/crud-php/jenis_berita.php">kembali ke menu jenis Berita </a></td>
     </tr>
             </table>
         </fieldset>
@@ -49,7 +50,12 @@
 
     $save =mysqli_query($koneksi, "UPDATE jenis_berita SET nama_jenis='$nama_jenis'
         WHERE id_jenis_berita='$id_jenis_berita'"); 
+    if( $save ) {
+        header('Location: /crud-php/jenis_berita.php?status=sukses');
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($koneksi);
     }
+            }
         
         
         

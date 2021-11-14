@@ -10,7 +10,7 @@
     <form action="" method="POST">
         <?php
             error_reporting(0);
-            include 'koneksi.php';
+            include ("../koneksi.php");
             $nojb = mysqli_query($koneksi, "SELECT *FROM jenis_berita ORDER BY id_jenis_berita DESC");
             $kodejb = mysqli_fetch_array($nojb);
             $kdjb = $kodejb['id_jenis_berita'];
@@ -47,7 +47,7 @@
                     </td>
 </tr>
     <tr>
-        <td><a href="jenis_berita.php">kembali ke menu jenis berita </a></td>
+        <td><a href="/crud-php/jenis_berita.php">kembali ke menu jenis berita </a></td>
     </tr>
             </table>
         </fieldset>
@@ -61,7 +61,12 @@
             $save =mysqli_query($koneksi, "INSERT INTO jenis_berita 
             (id_jenis_berita,nama_jenis)
             VALUES ('$id_jenis_berita','$nama_jenis')"); 
-        }
+       if( $save ) {
+        header('Location: /crud-php/jenis_berita.php?status=sukses');
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($koneksi);
+    }
+            }
             
         
         

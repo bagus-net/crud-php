@@ -10,7 +10,7 @@
     <form action="" method="POST">
         <?php
             error_reporting(0);
-            include 'koneksi.php';
+            include ("../koneksi.php");
             $no = mysqli_query($koneksi, "SELECT *FROM berita ORDER BY id_berita DESC");
             $kode = mysqli_fetch_array($no);
             $kd = $kode['id_berita'];
@@ -59,7 +59,7 @@
                     </td>
 </tr>
     <tr>
-        <td><a href="index.php">kembali ke menu berita </a></td>
+        <td><a href="/crud-php/berita.php">kembali ke menu berita </a></td>
     </tr>
             </table>
         </fieldset>
@@ -75,7 +75,12 @@
             $save =mysqli_query($koneksi, "INSERT INTO berita 
             (id_berita,tanggal,uraian_berita,sumber)
             VALUES ('$id_berita','$tanggal','$uraian_berita','$sumber')"); 
+        if( $save ) {
+            header('Location: /crud-php/berita.php?status=sukses');
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($koneksi);
         }
+                }
    
       ?>  
 </body>

@@ -9,10 +9,11 @@
 <body>
 
     <h1 style="text-align: center;">Jenis Berita</h1>
-    <a href="tambah_jenis_berita.php">Tambah Jenis Berita</a>
+    <a href="/crud-php/index.php">HOME</a><br>
+    <a href="./jenisberita/tambah_jenis_berita.php">Tambah Jenis Berita</a>
     <table border="1px" width="80%">
     <tr>
-        <td>no</td> 
+     
         <td>id_jenis_berita</td> 
         <td>nama_jenis</td> 
         <td>opsi</td> 
@@ -22,17 +23,17 @@
     <?php
     include 'koneksi.php';
     $query =mysqli_query($koneksi, "SELECT *FROM jenis_berita ORDER BY id_jenis_berita");
-    $nojb=0;
+
     while ($row = mysqli_fetch_array($query)) {
-        $nojb++; 
+  
     ?>
     <tr>
-    <td><?= $nojb;?></td>
+
     <td><?= $row['id_jenis_berita']; ?></td>
     <td><?= $row['nama_jenis']; ?></td>
     <td>
-        <a href="edit_jenis.php?id_jenis_berita=<?= $row ['id_jenis_berita'];?>">edit</a>
-        <a href="delete_jenis.php?id_jenis_berita=<?= $row ['id_jenis_berita'];?>" onclick ="return confirm ('Apakah anda yakin mau hapus ?')">delete</a>
+        <a href="./jenisberita/edit_jenis.php?id_jenis_berita=<?= $row ['id_jenis_berita'];?>">edit</a>
+        <a href="./jenisberita/delete_jenis.php?id_jenis_berita=<?= $row ['id_jenis_berita'];?>" onclick ="return confirm ('Apakah anda yakin mau hapus ?')">delete</a>
     </td>
 <?php }?>
 </td>
